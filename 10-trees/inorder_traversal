@@ -1,0 +1,16 @@
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.value, self.left, self.right = value, left, right
+
+def inorder(root):
+    result = []
+    def visit(node):
+        if node:
+            visit(node.left)
+            result.append(node.value)
+            visit(node.right)
+    visit(root)
+    return result
+
+if __name__ == "__main__":
+    print(inorder(TreeNode(2, TreeNode(1), TreeNode(3))))
