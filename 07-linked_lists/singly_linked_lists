@@ -1,0 +1,30 @@
+class Node:
+    def __init__(self, value):
+        self.value, self.next = value, None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, value):
+        node = Node(value)
+        if self.head is None:
+            self.head = node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = node
+
+    def to_list(self):
+        result, current = [], self.head
+        while current:
+            result.append(current.value)
+            current = current.next
+        return result
+
+if __name__ == "__main__":
+    linked = LinkedList()
+    for x in [10, 20, 30]:
+        linked.append(x)
+    print(linked.to_list())
