@@ -1,0 +1,16 @@
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.items = deque()
+    def enqueue(self, value):
+        self.items.append(value)
+    def dequeue(self):
+        if not self.items:
+            raise IndexError("dequeue from empty queue")
+        return self.items.popleft()
+
+if __name__ == "__main__":
+    queue = Queue()
+    queue.enqueue("A"); queue.enqueue("B")
+    print(queue.dequeue())  # A
