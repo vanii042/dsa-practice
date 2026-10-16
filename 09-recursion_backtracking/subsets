@@ -1,0 +1,15 @@
+def subsets(nums):
+    result = []
+    def build(index, current):
+        if index == len(nums):
+            result.append(current[:])
+            return
+        build(index + 1, current)
+        current.append(nums[index])
+        build(index + 1, current)
+        current.pop()
+    build(0, [])
+    return result
+
+if __name__ == "__main__":
+    print(subsets([1, 2, 3]))
