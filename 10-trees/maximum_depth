@@ -1,0 +1,11 @@
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.value, self.left, self.right = value, left, right
+
+def max_depth(root):
+    if root is None:
+        return 0
+    return 1 + max(max_depth(root.left), max_depth(root.right))
+
+if __name__ == "__main__":
+    print(max_depth(TreeNode(1, TreeNode(2), TreeNode(3, None, TreeNode(4)))))
