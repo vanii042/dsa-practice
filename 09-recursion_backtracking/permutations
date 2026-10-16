@@ -1,0 +1,13 @@
+def permutations(nums):
+    result = []
+    def build(current, remaining):
+        if not remaining:
+            result.append(current)
+            return
+        for i, value in enumerate(remaining):
+            build(current + [value], remaining[:i] + remaining[i + 1:])
+    build([], nums)
+    return result
+
+if __name__ == "__main__":
+    print(permutations([1, 2, 3]))
