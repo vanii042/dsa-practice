@@ -1,0 +1,9 @@
+def selection_sort(nums):
+    nums = nums[:]
+    for i in range(len(nums)):
+        smallest = min(range(i, len(nums)), key=nums.__getitem__)
+        nums[i], nums[smallest] = nums[smallest], nums[i]
+    return nums
+
+if __name__ == "__main__":
+    print(selection_sort([64, 25, 12, 22, 11]))
