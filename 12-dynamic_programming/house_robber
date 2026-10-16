@@ -1,0 +1,8 @@
+def rob(nums):
+    previous_two = previous_one = 0
+    for value in nums:
+        previous_two, previous_one = previous_one, max(previous_one, previous_two + value)
+    return previous_one
+
+if __name__ == "__main__":
+    print(rob([2, 7, 9, 3, 1]))  # 12
