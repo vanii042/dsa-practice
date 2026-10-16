@@ -1,0 +1,14 @@
+def dfs(graph, start):
+    visited, order = set(), []
+    def visit(node):
+        if node in visited:
+            return
+        visited.add(node)
+        order.append(node)
+        for neighbor in graph.get(node, []):
+            visit(neighbor)
+    visit(start)
+    return order
+
+if __name__ == "__main__":
+    print(dfs({1: [2, 3], 2: [4], 3: [4], 4: []}, 1))
