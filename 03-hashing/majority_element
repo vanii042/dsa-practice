@@ -1,0 +1,10 @@
+def majority_element(nums):
+    candidate, count = None, 0
+    for x in nums:
+        if count == 0:
+            candidate = x
+        count += 1 if x == candidate else -1
+    return candidate if nums and nums.count(candidate) > len(nums) // 2 else None
+
+if __name__ == "__main__":
+    print(majority_element([2, 2, 1, 1, 2, 2, 2]))  # 2
